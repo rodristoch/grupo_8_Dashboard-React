@@ -3,6 +3,8 @@
 Se nos pide en el sprint 8 del Proyecto Integrador un dashboard hecho en React que consuma los datos
 de las APIs y muestre de manera resumida las principales métricas de su negocio.
 
+----------------------------------------------------------------------------------------------------
+
 El dashboard deberá contener al menos:
 
 ● 3 a 6 paneles simples con los siguientes totales:
@@ -19,6 +21,7 @@ El dashboard deberá contener al menos:
 
 ● Panel con el listado de productos.
 
+----------------------------------------------------------------------------------------------------
 
 (Opcional) Funcionalidades adicionales:
 
