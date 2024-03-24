@@ -2,7 +2,7 @@ import React from "react";
 
 const Products = () => (
     <>
-        <p>sdsd</p>
+        <p>Productos</p>
     </>
 );
 

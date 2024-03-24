@@ -1,15 +1,19 @@
 import { useState } from 'react'
 import { Route, Routes, Link } from 'react-router-dom';
+
+
+import Navbar from './components/Navbar.jsx';
 import Home from './pages/home/Home.jsx';
 import Products from './pages/products/Products';
 import Users from './pages/users/Users'
+
 
 function App() {
 
 
   return (
     <>
-    <p>sdsd</p>
+    <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<Users />} />
