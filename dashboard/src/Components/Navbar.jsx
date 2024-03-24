@@ -9,7 +9,7 @@ function Navbar() {
     <Container className="text-center mt-4 mx-8">
       <Nav variant="tabs" defaultActiveKey="/home">
         <Nav.Item>
-          <Nav.Link as={Link} to="/" active={location.pathname === '/'}>Home</Nav.Link>
+          <Nav.Link as={Link} to="/" active={location.pathname === '/'}>Estado</Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link as={Link} to="/users" active={location.pathname === '/users'}>Usuarios</Nav.Link>
