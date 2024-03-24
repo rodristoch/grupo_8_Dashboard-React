@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Table, Badge } from 'react-bootstrap';
+import './Status.css'
 
 const Status = () => {
 
