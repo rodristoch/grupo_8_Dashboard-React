@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Table, Badge } from 'react-bootstrap';
-import './Status.css'
 
 const Status = () => {
 
@@ -13,6 +12,10 @@ const Status = () => {
         <Container className="mt-4">
             <Table striped>
                 <tbody>
+                <tr>
+                    <th>Servicio</th>
+                    <th>Estado</th>
+                </tr>
                     {services.map((service, index) => (
                         <tr key={index}>
                             <td>{service.title}</td>

@@ -1,10 +1,43 @@
-import React from "react";
-import {Container } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Container, Table } from 'react-bootstrap';
 
-const Products = () => (
-    <Container className="text-center mt-4 mx-8">
-        <p>Productos</p>
+function Products() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3100/api/productos');
+        const jsonData = await response.json();
+        setData(jsonData.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <Container className="mt-4">
+      <Table striped>
+        <tbody>
+        <tr>
+            <th>ID</th>
+            <th>Producto</th>
+            <th>Categoría</th>
+        </tr>
+          {data && data.map(product => (
+            <tr key={product.id}>
+              <td>{product.id}</td>
+              <td>{product.nombre}</td>
+              <td>{product.categorias.map(categoria => categoria.categoria)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     </Container>
-);
+  );
+}
 
 export default Products;
