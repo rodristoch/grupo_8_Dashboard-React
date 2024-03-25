@@ -19,24 +19,25 @@ function Products() {
   }, []);
 
   return (
-    <Container className="mt-4">
-      <Table striped>
-        <tbody>
-        <tr>
-            <th>ID</th>
-            <th>Producto</th>
-            <th>Categoría</th>
+<Container className="mt-4">
+  <Table striped>
+    <tbody>
+      <tr>
+        <th>ID</th>
+        <th>Producto</th>
+        <th>Categoría</th>
+      </tr>
+      {data && data.map(product => (
+        <tr key={product.id}>
+          <td>{product.id}</td>
+          <td><a href={`http://localhost:3100/productos/detalle/${product.id}`}>{product.nombre}</a></td>
+          <td>{product.categorias.map(categoria => categoria.categoria)}</td>
         </tr>
-          {data && data.map(product => (
-            <tr key={product.id}>
-              <td>{product.id}</td>
-              <td>{product.nombre}</td>
-              <td>{product.categorias.map(categoria => categoria.categoria)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </Container>
+      ))}
+    </tbody>
+  </Table>
+</Container>
+
   );
 }
 
