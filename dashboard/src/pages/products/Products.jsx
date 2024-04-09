@@ -18,26 +18,38 @@ function Products() {
     fetchData();
   }, []);
 
-  return (
-<Container className="mt-4">
-  <Table striped>
-    <tbody>
-      <tr>
-        <th>ID</th>
-        <th>Producto</th>
-        <th>Categoría</th>
-      </tr>
-      {data && data.map(product => (
-        <tr key={product.id}>
-          <td>{product.id}</td>
-          <td><a href={`http://localhost:3100/productos/detalle/${product.id}`}>{product.nombre}</a></td>
-          <td>{product.categorias.map(categoria => categoria.categoria)}</td>
-        </tr>
-      ))}
-    </tbody>
-  </Table>
-</Container>
+  const getProductURL = (tipoMascota, categoria, productId) => {
+    const mascota = tipoMascota === 2 ? 'perro' : 'gato'; // 2 para perro, cualquier otro valor para gato
+    let categoriaPlural = categoria;
+    if (categoria.toLowerCase() !== 'higiene' && categoria.toLowerCase() !== 'comida') {
+      categoriaPlural += 's'; // Agregar una 's' al final de la categoría excepto para "higiene" y "comida"
+    }
+    return `http://localhost:3100/productos/${mascota}/${categoriaPlural}/${productId}`;
+  };
 
+  return (
+    <Container className="mt-4">
+      <Table striped>
+        <tbody>
+          <tr>
+            <th>ID</th>
+            <th>Producto</th>
+            <th>Categoría</th>
+          </tr>
+          {data && data.map(product => (
+            <tr key={product.id}>
+              <td>{product.id}</td>
+              <td>
+                <a href={getProductURL(product.tipo_mascota_id, product.categorias[0].categoria, product.id)}>
+                  {product.nombre}
+                </a>
+              </td>
+              <td>{product.categorias.map(categoria => categoria.categoria)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </Container>
   );
 }
 
