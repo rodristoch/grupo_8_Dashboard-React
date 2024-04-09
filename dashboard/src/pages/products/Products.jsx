@@ -40,11 +40,11 @@ function Products() {
             <tr key={product.id}>
               <td>{product.id}</td>
               <td>
-                <a href={getProductURL(product.tipo_mascota_id, product.categorias[0].categoria, product.id)}>
+                <a href={getProductURL(product.tipo_mascota_id, product.categorias.length > 0 ? product.categorias[0].categoria : "", product.id)}>
                   {product.nombre}
                 </a>
               </td>
-              <td>{product.categorias.map(categoria => categoria.categoria)}</td>
+              <td>{product.categorias.length > 0 && product.categorias.map(categoria => categoria.categoria)}</td>
             </tr>
           ))}
         </tbody>
